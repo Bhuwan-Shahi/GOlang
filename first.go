@@ -1,21 +1,21 @@
-package main
+// package main
 
-import "fmt"
+// import "fmt"
 
-func sum(x, y int, s string) int {
-	fmt.Println(s)
-	return x + y
-} //functio with multple return and quich returs
+// func sum(x, y int, s string) int {
+// 	fmt.Println(s)
+// 	return x + y
+// } //functio with multple return and quich returs
 
-func calcuation(a, b int) (area, parameter int) {
-	area = a * b
-	parameter = a + b
-	return
-}
+// func calcuation(a, b int) (area, parameter int) {
+// 	area = a * b
+// 	parameter = a + b
+// 	return
+// }
 
-func main() {
+// func main() {
 
-	a, b := calcuation(3, 4)
-	fmt.Println(a, b)
+// 	a, b := calcuation(3, 4)
+// 	fmt.Println(a, b)
 
-}
+// }
