@@ -1,35 +1,35 @@
-package main
+// package main
 
-import "fmt"
+// import "fmt"
 
-func Print(message string) {
-	fmt.Println(message)
+// func Print(message string) {
+// 	fmt.Println(message)
 
-}
+// }
 
-type college struct {
-	name, location string
-	level          int
-}
-type montes struct {
-	rollno int
-}
-type school struct {
-	montes
-	college
-}
+// type college struct {
+// 	name, location string
+// 	level          int
+// }
+// type montes struct {
+// 	rollno int
+// }
+// type school struct {
+// 	montes
+// 	college
+// }
 
-func main() {
+// func main() {
 
-	school1 := school{
-		montes: montes{
-			rollno: 23,
-		},
-		college: college{
-			name:     "hello ",
-			location: "tinkune",
-			level:    23,
-		},
-	}
-	fmt.Println(school1.montes.rollno)
-}
+// 	school1 := school{
+// 		montes: montes{
+// 			rollno: 23,
+// 		},
+// 		college: college{
+// 			name:     "hello ",
+// 			location: "tinkune",
+// 			level:    23,
+// 		},
+// 	}
+// 	fmt.Println(school1.montes.rollno)
+// }
