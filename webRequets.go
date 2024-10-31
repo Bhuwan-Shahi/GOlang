@@ -16,7 +16,7 @@ func main() {
 	if err != nil {
 		panic(err)
 	}
-	fmt.Println("Response i :%T", response)
+	// fmt.Println("Response i :%T", response)
 
 	defer response.Body.Close() //callers responsibility to close the request
 
