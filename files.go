@@ -22,7 +22,7 @@
 // func main() {
 // 	fmt.Println("Welcome to file handeling")
 // 	writeFile()
-// 	readFile("/home/bhuwan/Desktop/erasing")
+// 	readFile("./Files_ok.txt")
 
 // }
 
