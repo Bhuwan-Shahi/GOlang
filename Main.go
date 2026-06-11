@@ -63,4 +63,9 @@ func main() {
 	array[0] = [2]int{34, 45}
 	fmt.Println(array)
 
+	for i, value := range array {
+		fmt.Println(i, value)
+	}
+	//We cannot mutate the original array
+
 }
