@@ -56,4 +56,11 @@ func main() {
 	}
 	fmt.Println()
 
+	//Arrays
+
+	array := [...][2]int{{1, 2}, {2, 3}, {3, 4}}
+	//To change the index of aray you have to do is initialize new
+	array[0] = [2]int{34, 45}
+	fmt.Println(array)
+
 }
