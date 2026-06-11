@@ -33,4 +33,27 @@ func main() {
 
 	fmt.Println(z)
 
+	//Loops
+
+	for i := 1; i < 10; i++ {
+		fmt.Println(i, "Hello from :", i)
+	}
+
+	//While loop
+	ab := 1
+	for ab < 10 {
+		fmt.Println("This is coming from while looping", ab)
+		ab++
+	}
+
+	//Range Operator
+
+	string := "Bhuwan Shahi"
+
+	for _, char := range string {
+		fmt.Printf("%c", char)
+
+	}
+	fmt.Println()
+
 }
