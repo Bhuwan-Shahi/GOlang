@@ -68,4 +68,26 @@ func main() {
 	}
 	//We cannot mutate the original array
 
+	//slices
+
+	//Pointer -> to the start
+	//Lengh -> of the slice
+	//Capacity -> how much more can this be expanded
+
+	arr := [5]int{1, 2, 3, 4, 5}
+
+	sl1 := arr[1:5]
+	println("This is for slices only")
+	fmt.Println(sl1, len(sl1), cap(sl1))
+
+	fmt.Println("This is slices without and array")
+
+	sl2 := []int{}
+	fmt.Println(sl2, len(sl2), cap(sl2))
+
+	for _, value := range sl1 {
+		fmt.Println(value)
+	}
+	//slice get mutated while passing to or from funcation
+	
 }
