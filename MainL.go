@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 //
 //func myFunc(x, y int) (int, error) {
@@ -48,9 +50,9 @@ func main() {
 
 	//Range Operator
 
-	string := "Bhuwan Shahi"
+	stringe := "Bhuwan Shahi"
 
-	for _, char := range string {
+	for _, char := range stringe {
 		fmt.Printf("%c", char)
 
 	}
@@ -88,6 +90,9 @@ func main() {
 	for _, value := range sl1 {
 		fmt.Println(value)
 	}
-	//slice get mutated while passing to or from funcation
-	
+	//slice get mutated while passing to or from function
+
+	mp := map[string]int{"ram": 12, "shyam": 13}
+	fmt.Println(mp)
+
 }
