@@ -35,10 +35,29 @@ func UniqueName(names []string) {
 	}
 
 }
+func UpdateShipment(currentStock map[string]int, newShipment []string) {
+
+	for _, value := range newShipment {
+		currentStock[value] += 1
+	}
+	fmt.Println(currentStock)
+}
 func main() {
 
-	submittedNames := []string{"Alex", "Jordan", "Alex", "Sam", "Jordan", "Charlie"}
-	UniqueName(submittedNames)
+	menuPrices := map[string]int{
+		"Burger": 15,
+		"Fries":  5,
+		"Soda":   3,
+		"Shake":  7,
+	}
+
+	//currentStock := map[string]int{"shoes": 5, "hats": 2}
+	//newShipment := []string{"shoes", "shirts", "shoes", "hats"}
+	//
+	//UpdateShipment(currentStock, newShipment)
+
+	//submittedNames := []string{"Alex", "Jordan", "Alex", "Sam", "Jordan", "Charlie"}
+	//UniqueName(submittedNames)
 
 	//studentGrades := map[string]int{
 	//	"Liam":  85,
