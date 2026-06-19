@@ -42,14 +42,37 @@ func UpdateShipment(currentStock map[string]int, newShipment []string) {
 	}
 	fmt.Println(currentStock)
 }
-func main() {
+func CalculateAverage(prices map[string]int) float64 {
+	var average float64
 
-	menuPrices := map[string]int{
-		"Burger": 15,
-		"Fries":  5,
-		"Soda":   3,
-		"Shake":  7,
+	for i, _ := range prices {
+		average += float64(prices[i])
 	}
+	average = average / float64(len(prices))
+
+	return average
+}
+
+func GroupByLetters(names []string) {
+	group := map[string][]string{}
+	for _, name := range names {
+		firstLetter := string(name[0])
+		group[firstLetter] = append(group[firstLetter], name)
+	}
+	fmt.Println(group)
+}
+func main() {
+	names := []string{"Alice", "Bob", "Charlie", "Anna", "Bill"}
+
+	GroupByLetters(names)
+	//menuPrices := map[string]int{
+	//	"Burger": 15,
+	//	"Fries":  5,
+	//	"Soda":   3,
+	//	"Shake":  7,
+	//}
+	//
+	//fmt.Println(CalculateAverage(menuPrices))
 
 	//currentStock := map[string]int{"shoes": 5, "hats": 2}
 	//newShipment := []string{"shoes", "shirts", "shoes", "hats"}
