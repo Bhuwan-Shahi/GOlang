@@ -4,10 +4,60 @@ import (
 	"fmt"
 )
 
+func VipEntry(guest map[string]bool, name string) {
+
+	if _, ok := guest[name]; ok {
+		fmt.Println("Welcome to the VIP Longue,", name)
+	} else {
+		fmt.Println("! Sorry,", name, "you are not on the guest list")
+	}
+}
+func HonorRoll(grades map[string]int) {
+	honorRoll := []string{}
+
+	for name, score := range grades {
+		if score > 80 {
+			honorRoll = append(honorRoll, name)
+		}
+	}
+	fmt.Println(honorRoll)
+}
+func UniqueName(names []string) {
+
+	seen := map[string]bool{}
+	namews := []string{}
+
+	for _, name := range names {
+		if !seen[name] {
+			seen[name] = true
+			namews = append(namews, name)
+		}
+	}
+
+}
 func main() {
 
 	submittedNames := []string{"Alex", "Jordan", "Alex", "Sam", "Jordan", "Charlie"}
-	uniqueName(submittedNames)
+	UniqueName(submittedNames)
+
+	//studentGrades := map[string]int{
+	//	"Liam":  85,
+	//	"Noah":  52,
+	//	"Emma":  91,
+	//	"Ava":   73,
+	//	"Lucas": 45,
+	//}
+	//
+	//HonorRoll(studentGrades)
+
+	//guestList := map[string]bool{
+	//	"Alice": true,
+	//	"Bob":   true,
+	//}
+
+	//VipEntry(guestList, "ramesh")
+	//VipEntry(guestList, "Bob")
+
 	//inventory := map[string]int{
 
 	//	"Milk":   5,
@@ -58,9 +108,7 @@ func main() {
 	//	CommaOk(statusCodes, "am")
 	//	CommaOk(statusCodes, "en-US")
 }
-func uniqueName() {
 
-}
 func OutofStock(a map[string]int) {
 	outstockslice := []string{}
 
