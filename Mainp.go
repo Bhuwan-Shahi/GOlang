@@ -75,7 +75,31 @@ func MultiCalculator(a, b int) (sum, sub, mul int, div float64) {
 	div = float64(a) / float64(b)
 	return sum, sub, mul, div
 }
+
+func UnlimitedSum(nums ...int) int {
+	sum := 0
+	for _, numbers := range nums {
+		sum += numbers
+	}
+	return sum
+}
+func NewCounter() func() int {
+
+	count := 0
+
+	return func() int {
+		count++
+		return count
+	}
+}
 func main() {
+	counter := NewCounter()
+
+	fmt.Println(counter())
+	fmt.Println(counter())
+	fmt.Println(counter())
+	fmt.Println(counter())
+	fmt.Println(UnlimitedSum(2, 3, 4))
 	fmt.Println(MultiCalculator(4, 4))
 	//names := []string{"Alice", "Bob", "Charlie", "Anna", "Bill"}
 	//
