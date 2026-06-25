@@ -61,10 +61,25 @@ func GroupByLetters(names []string) {
 	}
 	fmt.Println(group)
 }
-func main() {
-	names := []string{"Alice", "Bob", "Charlie", "Anna", "Bill"}
 
-	GroupByLetters(names)
+func MultiCalculator(a, b int) (sum, sub, mul int, div float64) {
+
+	sum = a + b
+	sub = a - b
+	mul = a * b
+
+	if b == 0 {
+		div = 0.0
+		return
+	}
+	div = float64(a) / float64(b)
+	return sum, sub, mul, div
+}
+func main() {
+	fmt.Println(MultiCalculator(4, 4))
+	//names := []string{"Alice", "Bob", "Charlie", "Anna", "Bill"}
+	//
+	//GroupByLetters(names)
 	//menuPrices := map[string]int{
 	//	"Burger": 15,
 	//	"Fries":  5,
