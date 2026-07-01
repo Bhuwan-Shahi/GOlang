@@ -9,9 +9,15 @@ import (
 //	return x + y, nil
 //}
 
+type Hobby struct {
+	Name     string
+	Duration int
+}
+
 type Employee struct {
 	name     string
 	position string
+	hobbies  Hobby
 }
 
 func (E Employee) getname() string {
@@ -24,11 +30,16 @@ func (e Employee) getPosition() string {
 	return e.position
 
 }
+func (e Employee) getHobbies() Hobby {
+	return e.hobbies
+}
 func main() {
 
-	E1 := Employee{"Himal", "Manager"}
+	E1 := Employee{"Himal", "Manager", Hobby{"Reading", 5}}
 	fmt.Println(E1.getname())
 	fmt.Println(E1.getPosition())
+	fmt.Println(E1.getHobbies())
+	fmt.Println(E1)
 	//fmt.Println(E1.position)
 	//fmt.Println(E1.name)
 
