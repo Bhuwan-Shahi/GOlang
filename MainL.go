@@ -9,7 +9,31 @@ import (
 //	return x + y, nil
 //}
 
+type Employee struct {
+	name     string
+	position string
+}
+
+func (E Employee) getname() string {
+	fmt.Println("This is coming from the function inside struct")
+	return E.name
+}
+
+func (e Employee) getPosition() string {
+	fmt.Println("This is the get Position Function")
+	return e.position
+
+}
 func main() {
+
+	E1 := Employee{"Himal", "Manager"}
+	fmt.Println(E1.getname())
+	fmt.Println(E1.getPosition())
+	//fmt.Println(E1.position)
+	//fmt.Println(E1.name)
+
+	//fmt.Println(E1)
+
 	//num, err := myFunc(10, 20)
 	//fmt.Println(num, err)
 
