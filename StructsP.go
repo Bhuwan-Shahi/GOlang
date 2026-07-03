@@ -29,7 +29,39 @@ func (I Item) TotalValue(inventory []Item) float64 {
 	return totalValue
 }
 
+type Player struct {
+	Name  string
+	Score int
+}
+type Team struct {
+	TeamName string
+	Players  []Player
+}
+
+func (T Team) TopScorrer(q Team) {
+
+	highestScore := -1
+	Name := ""
+	for _, score := range q.Players {
+		if score.Score > highestScore {
+			highestScore = score.Score
+			Name = score.Name
+		}
+
+	}
+	fmt.Println(Name)
+}
+
 func main() {
+
+	p1 := []Player{
+		{"Raj", 5},
+		{"Ronaldo", 23},
+		{"Aman", 35},
+	}
+	t1 := Team{"Quantam", p1}
+
+	t1.TopScorrer(t1)
 
 	items := []Item{
 		{"cup", 1, 2},
