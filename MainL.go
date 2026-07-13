@@ -44,6 +44,17 @@ type triangle struct {
 	breadth int
 	height  int
 }
+type square struct {
+	length int
+}
+
+func (s square) getPerimter() int {
+	return 4 * s.length
+}
+
+func (s square) getArea() int {
+	return 4 * s.length
+}
 
 func (t triangle) getPerimter() int {
 	return t.length + t.breadth + t.height
@@ -53,7 +64,15 @@ func (t triangle) getArea() int {
 	return t.length * t.breadth
 }
 func main() {
+	var shapes []Shape = []Shape{triangle{1, 2, 3}, square{1}}
+	perimeter := 0
 
+	for _, shape := range shapes {
+		perimeter += shape.getArea()
+	}
+	fmt.Println("This is sum from the array:", perimeter)
+
+	fmt.Println("Array of the interfaces")
 	var s Shape = triangle{1, 2, 4}
 	fmt.Println(s.getPerimter())
 	fmt.Println(s.getArea())
