@@ -33,7 +33,31 @@ func (e Employee) getPosition() string {
 func (e Employee) getHobbies() Hobby {
 	return e.hobbies
 }
+
+type Shape interface {
+	getPerimter() int
+	getArea() int
+}
+
+type triangle struct {
+	length  int
+	breadth int
+	height  int
+}
+
+func (t triangle) getPerimter() int {
+	return t.length + t.breadth + t.height
+}
+
+func (t triangle) getArea() int {
+	return t.length * t.breadth
+}
 func main() {
+
+	var s Shape = triangle{1, 2, 4}
+	fmt.Println(s.getPerimter())
+	fmt.Println(s.getArea())
+	fmt.Println("this is where interface ends")
 
 	E1 := Employee{"Himal", "Manager", Hobby{"Reading", 5}}
 	fmt.Println(E1.getname())
