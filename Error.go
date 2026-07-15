@@ -1,6 +1,17 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
+
+func div(a int, b int) (int, error) {
+	if b == 0 {
+		return 0, errors.New("Division by 0")
+
+	}
+	return a / b, nil
+}
 
 func deffered() {
 	fmt.Println("This is from a defferd function")
@@ -9,8 +20,10 @@ func deffered() {
 }
 
 func main() {
-	fmt.Println("Hello World")
-	defer deffered()
-	panic("Hiii, I am causing the panice")
-	fmt.Println("eh")
+	result, err := div(2, 2)
+	if err != nil {
+		fmt.Println("Error Occured")
+	} else {
+		fmt.Println(result)
+	}
 }
