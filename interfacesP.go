@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-type Shape interface {
+type SShape interface {
 	Area() float64
 }
 

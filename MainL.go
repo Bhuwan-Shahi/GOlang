@@ -34,7 +34,7 @@ func (e Employee) getHobbies() Hobby {
 	return e.hobbies
 }
 
-type SShape interface {
+type Shape interface {
 	getPerimter() int
 	getArea() int
 }
