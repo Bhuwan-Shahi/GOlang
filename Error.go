@@ -6,7 +6,8 @@ import (
 	"strconv"
 )
 
-var ErrINsufficientFunds = errors.New("INsufficinet funds for this withdrawl")
+var ErrINsufficientFunds = errors.New("Insufficinet funds for this withdrawl")
+var ErrTimeout = errors.New("Request timed out! ")
 
 func Withdraw(currentbalance float64, amount float64) (float64, error) {
 
@@ -36,6 +37,9 @@ func deffered() {
 	r := recover()
 	fmt.Println(r)
 }
+func FetchData() error {
+	return fmt.Errorf("Database query failed: %w", ErrTimeout)
+}
 
 func main() {
 	fmt.Println(Withdraw(1200, 2100))
@@ -45,5 +49,10 @@ func main() {
 		fmt.Println("Error Occured")
 	} else {
 		fmt.Println(result)
+	}
+
+	errorss := FetchData()
+	if errors.Is(errorss, ErrTimeout) {
+		fmt.Println("Skipping task: Connection timed out!")
 	}
 }
