@@ -6,6 +6,15 @@ import (
 	"strconv"
 )
 
+var ErrINsufficientFunds = errors.New("INsufficinet funds for this withdrawl")
+
+func Withdraw(currentbalance float64, amount float64) (float64, error) {
+
+	if amount > currentbalance {
+		return currentbalance, ErrINsufficientFunds
+	}
+	return (currentbalance - amount), nil
+}
 func ParseAge(input string) (int, error) {
 	integer, err := strconv.Atoi(input)
 	if err != nil {
@@ -29,6 +38,7 @@ func deffered() {
 }
 
 func main() {
+	fmt.Println(Withdraw(1200, 2100))
 	fmt.Println(ParseAge("bhuwan"))
 	result, err := div(2, 2)
 	if err != nil {
