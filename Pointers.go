@@ -16,6 +16,11 @@ func change(x *int) {
 	fmt.Println(*x)
 }
 
+func Swap(x, y *int) {
+	*x, *y = *y, *x
+
+}
+
 func main() {
 	b := Book{1, "Bhuwan ko Book"}
 	b.setTitle("Bhuwan ko book aaba ram ko vayo because pointer ko refrence")
@@ -33,4 +38,12 @@ func main() {
 
 	change(&yy)
 	println(yy)
+
+	fmt.Println("The output is for pointer pracitce quesiton only")
+	yyy := 12
+	zzz := 13
+	fmt.Println(yyy, zzz)
+	Swap(&yyy, &zzz)
+	fmt.Println(yyy, zzz)
+
 }
