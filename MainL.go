@@ -71,6 +71,7 @@ type Numbers interface {
 func add[T Numbers](a T, b T) T {
 	return a + b
 }
+
 func main() {
 
 	fmt.Println(add(1, 2))
