@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Book struct {
 	id    int
@@ -21,7 +24,29 @@ func Swap(x, y *int) {
 
 }
 
+type Wallet struct {
+	Balance float64
+}
+
+func (w *Wallet) Deposit(amount float64) {
+	w.Balance += amount
+}
+
+func (w *Wallet) Withdraw(amount float64) error {
+	if amount > w.Balance {
+		return errors.New("Amount greather than balance")
+	}
+	w.Balance -= amount
+	return nil
+}
+
 func main() {
+	bhuwansWallet := Wallet{100.00}
+
+	bhuwansWallet.Deposit(50.00)
+	fmt.Println(bhuwansWallet.Withdraw(30))
+	fmt.Println(bhuwansWallet)
+
 	b := Book{1, "Bhuwan ko Book"}
 	b.setTitle("Bhuwan ko book aaba ram ko vayo because pointer ko refrence")
 	fmt.Println(b)
