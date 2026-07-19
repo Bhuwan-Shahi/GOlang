@@ -50,10 +50,24 @@ func getEstimagedSpread(audiencesFlowers []float64) float64 {
 	bracket := math.Pow(float64(numofFllowers), 1.2)
 	return float64(float64(sum) * bracket)
 }
+func getfollowerPrediction(follower_count int, inf_type string, months float64) float64 {
+	factor := 2.00
+	switch inf_type {
+	case "fitnes":
+		factor = 4
+	case "cosmetic":
+		factor = 3
+	}
+	fmt.Println(math.Pow(factor, months))
+	return float64(follower_count) * math.Pow(factor, months)
 
+}
 func main() {
+	fmt.Println("This is from the flollower prediction.")
+	fmt.Println("\n", getfollowerPrediction(12, "cosmetic", 4), "\n")
 	fmt.Println("The total spread count is:")
 	fmt.Println(getEstimagedSpread([]float64{12, 12, 12}))
+
 	fmt.Println(Min([]int{121, 2232, 32323, 2324, 5, 5, 6}))
 	fmt.Println(Min([]int{}))
 
