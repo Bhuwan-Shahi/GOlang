@@ -53,7 +53,7 @@ func getEstimagedSpread(audiencesFlowers []float64) float64 {
 func getfollowerPrediction(follower_count int, inf_type string, months float64) float64 {
 	factor := 2.00
 	switch inf_type {
-	case "fitnes":
+	case "fitness":
 		factor = 4
 	case "cosmetic":
 		factor = 3
@@ -62,9 +62,14 @@ func getfollowerPrediction(follower_count int, inf_type string, months float64) 
 	return float64(follower_count) * math.Pow(factor, months)
 
 }
+func getinfluencerScore(numberFollowers float64, average_Engagement_percentage float64) float64 {
+	return average_Engagement_percentage * math.Log2(numberFollowers)
+}
 func main() {
+	fmt.Println("\n", getinfluencerScore(40000, 0.3), "\n")
+
 	fmt.Println("This is from the flollower prediction.")
-	fmt.Println("\n", getfollowerPrediction(12, "cosmetic", 4), "\n")
+	fmt.Println("\n", getfollowerPrediction(10, "fitness", 1), "\n")
 	fmt.Println("The total spread count is:")
 	fmt.Println(getEstimagedSpread([]float64{12, 12, 12}))
 
