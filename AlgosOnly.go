@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 //1. Finding Minimum
@@ -34,7 +35,25 @@ func Average(numbers []int) int {
 	return sum / len(numbers)
 }
 
+func getEstimagedSpread(audiencesFlowers []float64) float64 {
+	var numofFllowers float64
+	numofFllowers = float64(len(audiencesFlowers))
+
+	if numofFllowers == 0 {
+		return 0
+	}
+	sum := 0.00
+	for _, count := range audiencesFlowers {
+		sum += count
+	}
+	sum /= numofFllowers
+	bracket := math.Pow(float64(numofFllowers), 1.2)
+	return float64(float64(sum) * bracket)
+}
+
 func main() {
+	fmt.Println("The total spread count is:")
+	fmt.Println(getEstimagedSpread([]float64{12, 12, 12}))
 	fmt.Println(Min([]int{121, 2232, 32323, 2324, 5, 5, 6}))
 	fmt.Println(Min([]int{}))
 
