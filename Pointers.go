@@ -39,13 +39,27 @@ func (w *Wallet) Withdraw(amount float64) error {
 	w.Balance -= amount
 	return nil
 }
+func (w *Wallet) PrintWallet() {
+	if w == nil {
+		fmt.Println("Error: No Wallet Found")
+		return
+	}
+	fmt.Println("||||||||||")
+	fmt.Println("The current balance is:", w.Balance)
+	fmt.Println("||||||||||")
+
+}
 
 func main() {
+	var voidWallet *Wallet
+	voidWallet.PrintWallet()
+
 	bhuwansWallet := Wallet{100.00}
 
 	bhuwansWallet.Deposit(50.00)
 	fmt.Println(bhuwansWallet.Withdraw(30))
 	fmt.Println(bhuwansWallet)
+	bhuwansWallet.PrintWallet()
 
 	b := Book{1, "Bhuwan ko Book"}
 	b.setTitle("Bhuwan ko book aaba ram ko vayo because pointer ko refrence")
