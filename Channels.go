@@ -7,7 +7,6 @@ import (
 
 func add(a, b int, ch chan int, delay int) {
 	time.Sleep(time.Duration(delay) * time.Second)
-	fmt.Println(a + b)
 	ch <- a + b
 }
 
@@ -31,11 +30,20 @@ func main() {
 	ch1 := make(chan int)
 	ch2 := make(chan int)
 
-	go add(1, 2, ch1, 1)
+	go add(1, 2, ch1, 2)
 	go add(3, 2, ch2, 2)
 
-	x := <-ch2
-	y := <-ch1
+	for i := 0; i < 2; i++ {
+		select {
+		case x := <-ch1:
+			fmt.Println(x)
 
-	fmt.Println(x, y)
+		case y := <-ch2:
+			fmt.Println(y)
+
+		}
+	}
+
+	//Select allows us to handle which channel to use to handle the value
+
 }
