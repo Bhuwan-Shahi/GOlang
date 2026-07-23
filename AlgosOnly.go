@@ -65,7 +65,16 @@ func getfollowerPrediction(follower_count int, inf_type string, months float64) 
 func getinfluencerScore(numberFollowers float64, average_Engagement_percentage float64) float64 {
 	return average_Engagement_percentage * math.Log2(numberFollowers)
 }
+func factorial(ab int) int {
+	if ab <= 1 {
+		return ab
+	}
+	return ab * factorial(ab-1)
+}
 func main() {
+	fmt.Println("FAct")
+	fmt.Println(factorial(3))
+
 	fmt.Println("\n", getinfluencerScore(40000, 0.3), "\n")
 
 	fmt.Println("This is from the flollower prediction.")
