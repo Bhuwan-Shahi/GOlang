@@ -68,14 +68,14 @@ type Numbers interface {
 	int | uint | float64
 }
 
-func add[T Numbers](a T, b T) T {
+func sadd[T Numbers](a T, b T) T {
 	return a + b
 }
 
 func main() {
 
-	fmt.Println(add(1, 2))
-	fmt.Println(add(1.2, 2.2))
+	fmt.Println(sadd(1, 2))
+	fmt.Println(sadd(1.2, 2.2))
 	fmt.Println("This is where genrics ends")
 	var shapes []Shape = []Shape{triangle{1, 2, 3}, square{1}}
 	perimeter := 0
