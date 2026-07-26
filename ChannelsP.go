@@ -37,12 +37,28 @@ func (acc *Account) deposit(amount float64) error {
 	return nil
 
 }
+func Middleman(acc *Account, amount float64, ch chan error) {
+	ch <- acc.deposit(amount)
+}
 
 func main() {
+	ch := make(chan error)
 	acc := Account{"Bhuwan", 0.0}
 
-	fmt.Println(acc.deposit(12))
-	fmt.Println(acc.Balance)
+	go Middleman(&acc, 12, ch)
+	go Middleman(&acc, 0, ch)
+	err1 := <-ch
+	err2 := <-ch
+
+	if errors.Is(err1, ErrInvalidAmoun) {
+		fmt.Println("Caught error:", err1)
+	}
+	if errors.Is(err2, ErrInvalidAmoun) {
+		fmt.Println("Caught error:", err2)
+	}
+
+	fmt.Println("Final Balance:", acc.Balance)
+
 	//
 	//ch := make(chan int)
 	//arr := []int{1, 2, 3}
