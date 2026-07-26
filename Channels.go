@@ -9,7 +9,14 @@ func add(a, b int, ch chan int, delay int) {
 	time.Sleep(time.Duration(delay) * time.Second)
 	ch <- a + b
 }
+func serviceA(ch chan string) {
+	ch <- "Service from A"
+}
 
+func serviceB(ch chan string) {
+	time.Sleep(3 * time.Second)
+	ch <- "Service from b"
+}
 func main() {
 	//ch := make(chan int)
 	//go add(2, 3, ch)
@@ -33,12 +40,17 @@ func main() {
 	go add(1, 2, ch1, 2)
 	go add(3, 2, ch2, 2)
 
+	ch3 := make(chan string)
+	ch4 := make(chan string)
+	go serviceA(ch4)
+	go serviceB(ch3)
+
 	for i := 0; i < 2; i++ {
 		select {
-		case x := <-ch1:
+		case x := <-ch3:
 			fmt.Println(x)
 
-		case y := <-ch2:
+		case y := <-ch4:
 			fmt.Println(y)
 
 		}
