@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"sync"
-	"time"
 )
 
 type Counter struct {
@@ -11,16 +10,19 @@ type Counter struct {
 	lock  sync.Mutex
 }
 
-func cont(counter *Counter) {
+func cont(counter *Counter, wg *sync.WaitGroup) {
 	counter.lock.Lock()
 	defer counter.lock.Unlock()
 	counter.count++
 	fmt.Println(counter.count)
+	wg.Done()
 }
 func main() {
 	counter := Counter{}
+	wg := sync.WaitGroup{}
 	for i := 0; i < 100; i++ {
-		go cont(&counter)
+		wg.Add(1)
+		go cont(&counter, &wg)
 	}
-	time.Sleep(100 * time.Millisecond)
+	wg.Wait()
 }
