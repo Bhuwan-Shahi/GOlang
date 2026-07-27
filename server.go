@@ -15,7 +15,7 @@ type Server struct {
 
 func (server *Server) trackStatus() error {
 	if server == nil {
-		return errors.New("Nile pointer server")
+		return errors.New("Nil pointer server")
 	}
 	if server.status == "offline" {
 		return errors.New("Server is currenlty offline")
